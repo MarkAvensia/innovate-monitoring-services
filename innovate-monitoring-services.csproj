@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avensia.IM" Version="0.1.14" />
+    <PackageReference Include="inRiver.Remoting.iPMC" Version="8.2.4" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SlackAPI" Version="1.1.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Avensia.Inriver.Status">
+      <HintPath>..\Users\marmab\Downloads\Avensia.Inriver.Status.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="temp\" />
+  </ItemGroup>
+
+</Project>

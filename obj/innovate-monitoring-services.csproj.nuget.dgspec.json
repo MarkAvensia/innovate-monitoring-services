@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\PimSDTConnector\\innovate-monitoring-services.csproj": {}
+  },
+  "projects": {
+    "C:\\PimSDTConnector\\innovate-monitoring-services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\PimSDTConnector\\innovate-monitoring-services.csproj",
+        "projectName": "innovate-monitoring-services",
+        "projectPath": "C:\\PimSDTConnector\\innovate-monitoring-services.csproj",
+        "packagesPath": "C:\\Users\\marmab\\.nuget\\packages\\",
+        "outputPath": "C:\\PimSDTConnector\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\marmab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://packages.avensia.com/nuget/nuget/": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Avensia.IM": {
+              "target": "Package",
+              "version": "[0.1.14, )"
+            },
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.2.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "SlackAPI": {
+              "target": "Package",
+              "version": "[1.1.14, )"
+            },
+            "inRiver.Remoting.iPMC": {
+              "target": "Package",
+              "version": "[8.2.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.423\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
