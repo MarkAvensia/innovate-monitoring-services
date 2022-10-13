@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xU60VY57AdR8eaIlLuAidLLDOPY52y2BUaF/YfhIQq4I5T9PRLMSms/2sEWj1zyce8IfnIc6McHQ4tWsB6bx7Q==",
+  "dgSpecHash": "WihoELaFKxK+DTJEyn3sLUowREa89T5dcKvtd/oITqOsnDDBA1aqFApSAzwykVosljzVfrgdZh7y8aJ9m6UaNw==",
   "success": true,
-  "projectFilePath": "C:\\PimSDTConnector\\innovate-monitoring-services.csproj",
+  "projectFilePath": "C:\\InnovateMonitoringServices\\innovate-monitoring-services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marmab\\.nuget\\packages\\avensia.im\\0.1.14\\avensia.im.0.1.14.nupkg.sha512",
     "C:\\Users\\marmab\\.nuget\\packages\\inriver.remoting.ipmc\\8.2.4\\inriver.remoting.ipmc.8.2.4.nupkg.sha512",

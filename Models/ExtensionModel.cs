@@ -1,4 +1,6 @@
-﻿namespace NitroConnector.Models
+﻿using Newtonsoft.Json;
+
+namespace NitroConnector.Models
 {
     public class ExtensionModel
     {

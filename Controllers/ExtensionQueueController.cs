@@ -16,6 +16,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.IO;
+using Avensia.Inriver.Status.Contract;
+using Avensia.Inriver.Status.Extensions;
 
 namespace NitroConnector.Controllers
 {
@@ -476,8 +478,12 @@ namespace NitroConnector.Controllers
                 var baseURL = _configuration.GetConnectionString("InRiverStatusURL");
                 InRiverStatusClient client = new InRiverStatusClient();
                 var inRiverStatus = client.GetInRiverStatusAsync().Result;
-                
-                return JsonConvert.SerializeObject(inRiverStatus);
+                var values = inRiverStatus.Data.CurrentStatus
+                   .SelectMany(componentGroup => componentGroup.Components, (componentGroup, component) => new { componentGroup, component })
+                   .OrderByDescending(x => x.component.Status)
+                   .Select(x => x.componentGroup.DisplayName + " - " + x.component.DisplayName + " is" + x.component.Status.GetDisplayName());
+
+                return JsonConvert.SerializeObject(values);
 
             }
             catch (Exception e)

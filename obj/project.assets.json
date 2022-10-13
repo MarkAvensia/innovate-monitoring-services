@@ -4089,11 +4089,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PimSDTConnector\\innovate-monitoring-services.csproj",
+      "projectUniqueName": "C:\\InnovateMonitoringServices\\innovate-monitoring-services.csproj",
       "projectName": "innovate-monitoring-services",
-      "projectPath": "C:\\PimSDTConnector\\innovate-monitoring-services.csproj",
+      "projectPath": "C:\\InnovateMonitoringServices\\innovate-monitoring-services.csproj",
       "packagesPath": "C:\\Users\\marmab\\.nuget\\packages\\",
-      "outputPath": "C:\\PimSDTConnector\\obj\\",
+      "outputPath": "C:\\InnovateMonitoringServices\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marmab\\AppData\\Roaming\\NuGet\\NuGet.Config",
