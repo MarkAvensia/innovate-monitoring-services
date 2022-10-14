@@ -10,14 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using Avensia.Inriver.Status;
+using Avensia.IM.CIA.Inriver.RSSFeed;
 using Avensia.IM.Slack;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.IO;
-using Avensia.Inriver.Status.Contract;
-using Avensia.Inriver.Status.Extensions;
+using Avensia.IM.CIA.Inriver.RSSFeed.Contract;
+using Avensia.IM.CIA.Inriver.RSSFeed.Extensions;
 
 namespace NitroConnector.Controllers
 {

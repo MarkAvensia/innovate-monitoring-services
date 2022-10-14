@@ -29,6 +29,7 @@
           "Newtonsoft.Json": "13.0.1",
           "SlackAPI": "1.1.14",
           "inRiver.Remoting.iPMC": "8.2.4",
+          "Avensia.IM.CIA.Inriver.RSSFeed": "1.0.0.0",
           "Avensia.Inriver.Status": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -1037,6 +1038,17 @@
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
           "System.Drawing.Common": "4.7.0"
+        }
+      },
+      "Avensia.IM.CIA.Inriver.RSSFeed/1.0.0.0": {
+        "runtime": {
+          "Avensia.IM.CIA.Inriver.RSSFeed.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "Avensia.IM.CIA.Inriver.RSSFeed.dll": {}
         }
       },
       "Avensia.Inriver.Status/1.0.0.0": {
@@ -3268,6 +3280,11 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Avensia.IM.CIA.Inriver.RSSFeed/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     },
     "Avensia.Inriver.Status/1.0.0.0": {
       "type": "reference",

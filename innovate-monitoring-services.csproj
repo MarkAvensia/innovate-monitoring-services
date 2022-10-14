@@ -13,6 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Avensia.IM.CIA.Inriver.RSSFeed">
+      <HintPath>..\Users\marmab\Downloads\Avensia.IM.CIA.Inriver.RSSFeed.dll</HintPath>
+    </Reference>
     <Reference Include="Avensia.Inriver.Status">
       <HintPath>..\Users\marmab\Downloads\Avensia.Inriver.Status.dll</HintPath>
     </Reference>

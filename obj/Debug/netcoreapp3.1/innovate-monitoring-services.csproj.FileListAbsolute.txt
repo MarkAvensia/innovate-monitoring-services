@@ -138,3 +138,4 @@ C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\staticwebassets\innovate-m
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.dll
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.pdb
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.genruntimeconfig.cache
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\Avensia.IM.CIA.Inriver.RSSFeed.dll
