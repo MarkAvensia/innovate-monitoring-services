@@ -90,14 +90,16 @@ namespace NitroConnector.Controllers
             {
                 if (System.IO.File.Exists(filePath))
                 {
-                    var dataFromFile = System.IO.File.ReadAllText(@"temp/" + customerName + ".txt");
+                    var dataFromFile = System.IO.File.ReadAllText(filePath);
+                    var fileInfo = new FileInfo(filePath);
+                    
                     var lastState = JsonConvert.DeserializeObject<List<StatQueue>>(dataFromFile);
 
                     foreach (var stat in stats)
                     {
                         var data = lastState.Where(x => x.ErrorEventCount == x.ErrorEventCount && x.Extension == stat.Extension);
 
-                        if (!(data.Count() > 0))
+                        if (data.Count() > 0 && (DateTime.Now.Date.CompareTo(fileInfo.CreationTime.Date)) >= 1)
                         {
                             if (stat.ErrorEventCount >= Int32.Parse(tresHold))
                             {
