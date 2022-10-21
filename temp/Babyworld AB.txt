@@ -1,1 +1,1 @@
-[{"ID":null,"Extension":"ChannelListenerv8888","QueuedEventCount":0,"ErrorEventCount":4,"CurrentSequenceNumber":-1,"ExtentionUrl":"https://controlcenter-prod1a-euw.productmarketingcloud.com/Area/babyworldab/test#/connect/extension/manage/ChannelListenerv8888"}]
+[{"ID":null,"Extension":"ChannelListenerv8888","QueuedEventCount":0,"ErrorEventCount":6,"CurrentSequenceNumber":-1,"ExtentionUrl":"https://controlcenter-prod1a-euw.productmarketingcloud.com/Area/babyworldab/test#/connect/extension/manage/ChannelListenerv8888"}]

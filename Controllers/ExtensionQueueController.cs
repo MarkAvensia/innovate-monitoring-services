@@ -120,14 +120,14 @@ namespace NitroConnector.Controllers
                     foreach (var stat in stats)
                     {
                         if (stat.ErrorEventCount >= Int32.Parse(tresHold))
-
+                        {
                             message += $"`{stat.Extension}` \n" +
                                     $"Extension Error: {stat.ErrorEventCount} \n" +
                                     $"Extension URL: {stat.ExtentionUrl} \n" +
-                                       $"-------------------------------------------- \n";
+                                    $"-------------------------------------------- \n";
 
-                        sendMessage = true;
-
+                            sendMessage = true;
+                        }
                     }
                 }
 
