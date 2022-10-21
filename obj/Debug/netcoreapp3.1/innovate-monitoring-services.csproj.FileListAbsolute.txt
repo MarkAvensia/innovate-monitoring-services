@@ -111,8 +111,8 @@ C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\System.ServiceModel.Http.d
 C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\System.ServiceModel.Primitives.dll
 C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\System.ServiceModel.dll
 C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\Avensia.IM.CIA.Inriver.RSSFeed.dll
 C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\Avensia.Inriver.Status.dll
-C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.csprojAssemblyReference.cache
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.AssemblyInfoInputs.cache
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.AssemblyInfo.cs
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.csproj.CoreCompileInputs.cache
@@ -138,4 +138,3 @@ C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\staticwebassets\innovate-m
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.dll
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.pdb
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.genruntimeconfig.cache
-C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\Avensia.IM.CIA.Inriver.RSSFeed.dll

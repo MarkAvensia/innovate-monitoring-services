@@ -97,9 +97,9 @@ namespace NitroConnector.Controllers
 
                     foreach (var stat in stats)
                     {
-                        var data = lastState.Where(x => x.ErrorEventCount == x.ErrorEventCount && x.Extension == stat.Extension);
+                        var data = lastState.Where(x => x.ErrorEventCount != stat.ErrorEventCount && x.Extension == stat.Extension);
 
-                        if (data.Count() > 0 && (DateTime.Now.Date.CompareTo(fileInfo.CreationTime.Date)) >= 1)
+                        if (data.Count() > 0 && (DateTime.Now.Date.CompareTo(fileInfo.LastAccessTime.Date)) >= 1)
                         {
                             if (stat.ErrorEventCount >= Int32.Parse(tresHold))
                             {
