@@ -69,3 +69,9 @@ C:\InnovateMonitoringServices\obj\Release\netcoreapp3.1\staticwebassets\innovate
 C:\InnovateMonitoringServices\obj\Release\netcoreapp3.1\innovate-monitoring-services.dll
 C:\InnovateMonitoringServices\obj\Release\netcoreapp3.1\innovate-monitoring-services.pdb
 C:\InnovateMonitoringServices\obj\Release\netcoreapp3.1\innovate-monitoring-services.genruntimeconfig.cache
+C:\InnovateMonitoringServices\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+C:\InnovateMonitoringServices\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\InnovateMonitoringServices\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\InnovateMonitoringServices\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\InnovateMonitoringServices\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\InnovateMonitoringServices\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

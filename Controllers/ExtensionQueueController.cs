@@ -18,6 +18,8 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.IO;
 using Avensia.IM.CIA.Inriver.RSSFeed.Contract;
 using Avensia.IM.CIA.Inriver.RSSFeed.Extensions;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace NitroConnector.Controllers
 {
@@ -35,13 +37,13 @@ namespace NitroConnector.Controllers
         {
             _configuration = configuration;
             _logger = logger;
-            Initialized();
         }
 
         // ExtensionQueue/GetStatQueues/Megaflis/Test
         [HttpGet, Route("GetStatQueues/{customerName}/{environment}")]
         public async System.Threading.Tasks.Task<IActionResult> GetStatQueuesAsync(string customerName, string environment)
         {
+            Initialized(environment);
             List<StatQueue> stats = new List<StatQueue>();
             var customerSettings = GetCustomerSettings(customerName, environment);
             var extensionURL = _configuration.GetConnectionString("InRiverExtensionLink");
@@ -88,47 +90,102 @@ namespace NitroConnector.Controllers
 
             try
             {
-                if (System.IO.File.Exists(filePath))
+                DBConnection dbConnect = new DBConnection();
+                SqlConnectionStringBuilder builder = dbConnect.connString();
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-                    var dataFromFile = System.IO.File.ReadAllText(filePath);
-                    var fileInfo = new FileInfo(filePath);
-                    
-                    var lastState = JsonConvert.DeserializeObject<List<StatQueue>>(dataFromFile);
+                    connection.Open();
 
-                    foreach (var stat in stats)
+                    String selectSql = $"SELECT * FROM RSSMonitoringExtensions WHERE CustomerName = '{customerName}'";
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
                     {
-                        var data = lastState.Where(x => x.ErrorEventCount != stat.ErrorEventCount && x.Extension == stat.Extension);
-
-                        if (data.Count() > 0 && (DateTime.Now.Date.CompareTo(fileInfo.LastAccessTime.Date)) >= 1)
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
                         {
-                            if (stat.ErrorEventCount >= Int32.Parse(tresHold))
+                            if (reader.HasRows)
                             {
-                                message += $"`{stat.Extension}` \n" +
-                                       $"Extension Error: {stat.ErrorEventCount} \n" +
-                                       $"Extension URL: {stat.ExtentionUrl} \n" +
-                                       $"-------------------------------------------- \n";
+                                DataTable dbExtension = new DataTable("Extensions");
+                                dbExtension.Load(reader);
+                                reader.Close();
 
-                                sendMessage = true;
+                                foreach (DataRow ext in dbExtension.Rows)
+                                {
+                                    string custName = ext.ItemArray[0].ToString();
+                                    string extensionName = ext.ItemArray[1].ToString();
+                                    int queuedEventCount = Int32.Parse(ext.ItemArray[2].ToString());
+                                    int errorEventCount = Int32.Parse(ext.ItemArray[3].ToString());
+                                    int currentSeqNumber = Int32.Parse(ext.ItemArray[4].ToString());
+                                    string extensionUrl = ext.ItemArray[5].ToString();
+                                    DateTime lastUpdate = DateTime.Parse(ext.ItemArray[6].ToString());
+
+                                    var data = stats.Where(x => x.ErrorEventCount != errorEventCount && x.Extension == extensionName && (DateTime.Now.Date.CompareTo(lastUpdate.Date)) >= 1).FirstOrDefault();
+
+                                    if (data != null && data.ErrorEventCount >= Int32.Parse(tresHold))
+                                    {
+                                        String updateSql = $"UPDATE RSSMonitoringExtensions " +
+                                                           $"SET QueuedEventCount = @queuedEventCount," +
+                                                           $"ErrorEventCount = @errorEventCount," +
+                                                           $"CurrentSequenceNumber = @currentSequenceNumber," +
+                                                           $"LastUpdate = @lastUpdate " +
+                                                           $"WHERE CustomerName = @customerName AND Extension = @extension";
+
+                                        using (SqlCommand updateCommand = new SqlCommand(updateSql, connection))
+                                        {
+                                            updateCommand.Parameters.AddWithValue(@"customerName", customerName);
+                                            updateCommand.Parameters.AddWithValue(@"@extension", data.Extension);
+                                            updateCommand.Parameters.AddWithValue("@queuedEventCount", data.QueuedEventCount);
+                                            updateCommand.Parameters.AddWithValue("@errorEventCount", data.ErrorEventCount);
+                                            updateCommand.Parameters.AddWithValue("@currentSequenceNumber", data.CurrentSequenceNumber);
+                                            updateCommand.Parameters.AddWithValue("@lastUpdate", DateTime.Now.Date);
+                                            updateCommand.ExecuteNonQuery();
+
+                                            message += $"`{data.Extension}` \n" +
+                                                   $"Extension Error: {data.ErrorEventCount} \n" +
+                                                   $"Extension URL: {data.ExtentionUrl} \n" +
+                                                   $"-------------------------------------------- \n";
+
+                                            sendMessage = true;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                foreach (var stat in stats)
+                                {
+                                    if (stat.ErrorEventCount >= Int32.Parse(tresHold))
+                                    {
+                                        reader.Close();
+
+                                        String inSertSql = $"INSERT INTO RSSMonitoringExtensions (CustomerName, Extension, QueuedEventCount, ErrorEventCount, CurrentSequenceNumber, ExtensionUrl, LastUpdate)" +
+                                                           $"VALUES(@customerName, @extension, @queuedEventCount, @errorEventCount, @currentSequenceNumber, @extensionUrl, @lastUpdate)";
+
+                                        using (SqlCommand insertCommand = new SqlCommand(inSertSql, connection))
+                                        {
+                                            insertCommand.Parameters.Add("@customerName", SqlDbType.VarChar, 250).Value = customerName;
+                                            insertCommand.Parameters.Add("@extension", SqlDbType.VarChar, 250).Value = stat.Extension;
+                                            insertCommand.Parameters.Add("@queuedEventCount", SqlDbType.Int).Value = stat.QueuedEventCount;
+                                            insertCommand.Parameters.Add("@errorEventCount", SqlDbType.Int).Value = stat.ErrorEventCount;
+                                            insertCommand.Parameters.Add("@currentSequenceNumber", SqlDbType.Int).Value = stat.CurrentSequenceNumber;
+                                            insertCommand.Parameters.Add("@extensionUrl", SqlDbType.VarChar, 250).Value = stat.ExtentionUrl;
+                                            insertCommand.Parameters.Add("@lastUpdate", SqlDbType.Date).Value = DateTime.Now.Date;
+                                            insertCommand.ExecuteNonQuery();
+
+                                            message += $"`{stat.Extension}` \n" +
+                                                    $"Extension Error: {stat.ErrorEventCount} \n" +
+                                                    $"Extension URL: {stat.ExtentionUrl} \n" +
+                                                    $"-------------------------------------------- \n";
+
+                                            sendMessage = true;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
 
-                    System.IO.File.Delete(filePath);
-                }
-                else
-                {
-                    foreach (var stat in stats)
-                    {
-                        if (stat.ErrorEventCount >= Int32.Parse(tresHold))
-                        {
-                            message += $"`{stat.Extension}` \n" +
-                                    $"Extension Error: {stat.ErrorEventCount} \n" +
-                                    $"Extension URL: {stat.ExtentionUrl} \n" +
-                                    $"-------------------------------------------- \n";
-
-                            sendMessage = true;
-                        }
-                    }
+                    connection.Close();
                 }
 
                 if (sendMessage)
@@ -463,9 +520,9 @@ namespace NitroConnector.Controllers
             return extensionList.Intersect(IDs).ToList<string>();
         }
 
-        private void Initialized()
+        private void Initialized(string environment)
         {
-            var settings = _configuration.GetSection("CustomerSettings").Get(typeof(List<CustomerSettings>));
+            var settings = _configuration.GetSection("CustomerSettings").GetSection(environment).Get(typeof(List<CustomerSettings>));
             if (settings != null)
             {
                 customerSettings = settings as List<CustomerSettings>;

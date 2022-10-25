@@ -115,8 +115,6 @@ C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\Avensia.IM.CIA.Inriver.RSS
 C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\Avensia.Inriver.Status.dll
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.AssemblyInfoInputs.cache
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.AssemblyInfo.cs
-C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.csproj.CoreCompileInputs.cache
-C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.MvcApplicationPartsAssemblyInfo.cache
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.RazorAssemblyInfo.cache
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.RazorAssemblyInfo.cs
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.TagHelpers.input.cache
@@ -138,3 +136,12 @@ C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\staticwebassets\innovate-m
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.dll
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.pdb
 C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.genruntimeconfig.cache
+C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.csprojAssemblyReference.cache
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\InnovateMonitoringServices\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.csproj.CoreCompileInputs.cache
+C:\InnovateMonitoringServices\obj\Debug\netcoreapp3.1\innovate-monitoring-services.MvcApplicationPartsAssemblyInfo.cache
