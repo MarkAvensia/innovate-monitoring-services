@@ -8,7 +8,14 @@
       "TRACE",
       "RELEASE",
       "NETCOREAPP",
-      "NETCOREAPP3_1"
+      "NETCOREAPP3_1",
+      "NETCOREAPP1_0_OR_GREATER",
+      "NETCOREAPP1_1_OR_GREATER",
+      "NETCOREAPP2_0_OR_GREATER",
+      "NETCOREAPP2_1_OR_GREATER",
+      "NETCOREAPP2_2_OR_GREATER",
+      "NETCOREAPP3_0_OR_GREATER",
+      "NETCOREAPP3_1_OR_GREATER"
     ],
     "languageVersion": "8.0",
     "platform": "",
@@ -31,7 +38,6 @@
           "System.Data.SqlClient": "4.8.4",
           "inRiver.Remoting.iPMC": "8.2.4",
           "Avensia.IM.CIA.Inriver.RSSFeed": "1.0.0.0",
-          "Avensia.Inriver.Status": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -1120,17 +1126,6 @@
         },
         "compile": {
           "Avensia.IM.CIA.Inriver.RSSFeed.dll": {}
-        }
-      },
-      "Avensia.Inriver.Status/1.0.0.0": {
-        "runtime": {
-          "Avensia.Inriver.Status.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "Avensia.Inriver.Status.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3395,11 +3390,6 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "Avensia.IM.CIA.Inriver.RSSFeed/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Avensia.Inriver.Status/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
